@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const { prefix, token, giphyToken } = require('./config.json');
 const client = new Discord.Client();
 
 var GphApiClient = require('giphy-js-sdk-core')
@@ -10,20 +9,20 @@ client.on('ready', () => {
   });
   
   client.on('message', msg => {
-    if (msg.content.startsWith(`${prefix} ping`)) {
+    if (msg.content.startsWith(`4bot ping`)) {
       msg.channel.send('Pong!')
     }
   });
 
   client.on('message', msg => {
-    if (msg.content.startsWith(`${prefix} fora`)) {
+    if (msg.content.startsWith(`4bot fora`)) {
                 msg.channel.send('Matej je nos kopao, pa mu je umjetni otpao! :joy_cat:'), {
                 }
     }
   });
 
   client.on('message', msg => {
-    if (msg.content.startsWith(`${prefix} serverinfo`)) {
+    if (msg.content.startsWith(`4bot serverinfo`)) {
       msg.channel.send('Ime: 4.C Gamers, bla, bla, bla i bla')
     }
   });
@@ -34,4 +33,4 @@ client.on('ready', () => {
     }
   });
   
-client.login(token);
+client.login(process.env.BOT_TOKEN);
